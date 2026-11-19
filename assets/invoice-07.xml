@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ExampleInvoice>
+  <EIid>DEMO-202607</EIid>
+  <RequestTime>2026-07-31 09:00:00</RequestTime>
+  <BuyerName>示例科技有限公司</BuyerName>
+  <BuyerIdNum>DEMO-BUYER-001</BuyerIdNum>
+  <SellerName>示例租赁有限公司</SellerName>
+  <SellerIdNum>DEMO-SELLER-001</SellerIdNum>
+  <ItemName>厂房租赁服务 2026年07月</ItemName>
+  <TotalAmWithoutTax>100000.00</TotalAmWithoutTax>
+  <TotalTaxAm>9000.00</TotalTaxAm>
+  <TotalTax-includedAmount>109000.00</TotalTax-includedAmount>
+  <TaxRate>0.09</TaxRate>
+</ExampleInvoice>
