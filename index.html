@@ -2,10 +2,87 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>EM 核验演示</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>租赁结报测试单 · EM 核验演示</title>
+  <link rel="stylesheet" href="./demo.css">
+  <script defer src="./demo.js"></script>
 </head>
 <body>
-  <h1>EM 核验演示</h1>
-  <p>GitHub Pages 部署成功。</p>
+  <div class="demo-shell">
+    <header class="site-head">
+      <div class="site-head__inner wrap">
+        <span class="site-name">EM 核验演示</span>
+        <span class="synthetic">虚构数据 <span lang="en">· Synthetic data</span></span>
+      </div>
+    </header>
+    <main class="wrap report">
+      <header class="report-title">
+        <div>
+          <p class="folio">结报单 <span id="report-id">DEMO-Q3-01</span></p>
+          <h1>厂房租赁结报</h1>
+          <p class="subtitle"><span lang="en">Factory lease settlement</span> · 2026 年 7–9 月</p>
+        </div>
+        <div class="headline-total">
+          <p>发票价税合计 <span lang="en">/ Invoice total</span></p>
+          <strong>¥327,000<span>.00</span></strong>
+        </div>
+      </header>
+
+      <nav class="scenarios" aria-label="测试场景 / Test cases">
+        <span class="scenario-label">测试场景 <small lang="en">Test case</small></span>
+        <a href="?case=matched" data-case="matched">三方一致 <span lang="en">Match</span></a>
+        <a href="?case=amount-mismatch" data-case="amount-mismatch">金额差异 <span lang="en">Mismatch</span></a>
+        <a href="?case=partial-months" data-case="partial-months">月份缺失 <span lang="en">Missing month</span></a>
+      </nav>
+
+      <noscript><p>请启用 JavaScript 以载入本页的样本。Enable JavaScript to load the sample documents.</p></noscript>
+      <div class="columns">
+        <div class="documents">
+          <section class="sheet" aria-labelledby="inv-title">
+            <header class="section-head"><h2 id="inv-title">发票清单 <small lang="en">Invoices</small></h2><span class="count" id="invoice-count"></span></header>
+            <div class="table-scroll" tabindex="0" aria-label="发票清单，可横向滚动 / Invoice list">
+              <table class="invoice-table" id="InvoiceFileInit1_gvINV">
+                <thead><tr><th scope="col">序号</th><th scope="col">租赁月份</th><th scope="col">发票号码</th><th scope="col">税率</th><th scope="col" class="num">价税合计</th><th scope="col">附件</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="sheet" aria-labelledby="stmt-title">
+            <header class="section-head"><h2 id="stmt-title">供应商对账单 <small lang="en">Supplier statement</small></h2></header>
+            <div class="table-scroll" tabindex="0" aria-label="对账单，可横向滚动 / Statement, scroll horizontally">
+              <table id="InvoiceFileInit1_gvOTHERInv">
+                <thead><tr><th scope="col">单号</th><th scope="col">供应商</th><th scope="col" class="num">价税合计</th><th scope="col">附件</th></tr></thead>
+                <tbody><tr><td id="statement-id"></td><td>示例租赁有限公司</td><td class="num" id="statement-total"></td><td><a class="file" id="InvoiceFileInit1_gvOTHERInv_ctl02_lbDownload" target="_blank" rel="noopener">PDF</a></td></tr></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="sheet" aria-labelledby="contract-title">
+            <header class="section-head"><h2 id="contract-title">租赁合约 <small lang="en">Lease contract</small></h2></header>
+            <table class="parties">
+              <thead><tr><th scope="col">我方</th><th scope="col">对方</th></tr></thead>
+              <tbody><tr><td>示例科技有限公司</td><td>示例租赁有限公司</td></tr></tbody>
+            </table>
+            <table class="summary"><tbody><tr><td>案件摘要</td><td class="tiptap-editor-content">我方承租对方厂房，租期自 2026 年 7 月 1 日至 9 月 30 日。未税月租金为人民币 100,000.00 元，税率 9%。</td></tr></tbody></table>
+          </section>
+        </div>
+
+        <aside class="guide" aria-labelledby="guide-title">
+          <header class="section-head"><h2 id="guide-title">如何核验 <small lang="en">Reviewer guide</small></h2></header>
+          <div class="guide-body">
+            <p>安装待测的 EM 扩展并刷新本页。点击工具栏扩展图标，再点「展开完整面板」。</p>
+            <p class="translation" lang="en">Install the submitted EM extension and reload this page. Open its toolbar popup and select “展开完整面板” (Open full panel).</p>
+            <div class="expected">
+              <h3>当前场景预期 <small lang="en">Expected result</small></h3>
+              <p id="expected-zh"></p><p id="expected-en" class="translation" lang="en"></p>
+            </div>
+            <h3>试算合约金额 <small lang="en">Recalculate</small></h3>
+            <p>将「月份数」从 3 改为 2，点「重新比对」。合约价税合计应变为 ¥218,000.00。点「重新扫描」恢复样本值。</p>
+            <p class="translation" lang="en">Set the month count to 2 and click “重新比对” (Compare again). The contract total should change to CNY 218,000.00. Click “重新扫描” (Rescan) to restore the sample.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
